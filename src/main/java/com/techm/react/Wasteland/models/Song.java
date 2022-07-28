@@ -4,28 +4,35 @@ import lombok.*;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import java.sql.Time;
 
 @Entity
-@Table(name = "album")
+@Table(name = "song")
 @NoArgsConstructor
 @Getter @Setter
 @EqualsAndHashCode
 @ToString
 
-public class Album {
+public class Song {
 
-    @Column(name="album_title")
+    @Column(name = "title")
     private String title;
 
-    @Column(name="album_artist")
+    @Column(name = "album")
+    private String album;
+
+    @Column(name = "artists")
     private String artists;
 
-    @Column(name = "tracks")
-    private int tracks;
+    @Column(name = "track")
+    private int track;
 
-    @Column(name = "album_length")
+    @Column(name = "track_length")
     private Time length;
+
+    @ManyToOne
+    private Album albs;
 
 }
