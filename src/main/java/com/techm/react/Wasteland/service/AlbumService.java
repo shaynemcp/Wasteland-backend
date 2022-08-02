@@ -5,13 +5,17 @@ import com.techm.react.Wasteland.dto.AlbumDTO;
 import com.techm.react.Wasteland.models.Album;
 import com.techm.react.Wasteland.repository.AlbumRepo;
 import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
-
+@Service
 public class AlbumService implements AlbumServiceInterface{
+    @Autowired
     AlbumRepo albumRepo;
+    @Autowired
     private ModelMapper modelMapper;
 
     public List<AlbumDTO> findAllAlbums() {

@@ -2,19 +2,20 @@ package com.techm.react.Wasteland.models;
 
 import lombok.*;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.sql.Time;
 
 @Entity
 @Table(name = "album")
 @NoArgsConstructor
+@AllArgsConstructor
 @Getter @Setter
 @EqualsAndHashCode
 @ToString
-
 public class Album {
+    @Id
+    @GeneratedValue
+    int id;
 
     @Column(name="album_title")
     private String title;

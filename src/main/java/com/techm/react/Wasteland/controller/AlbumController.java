@@ -3,14 +3,16 @@ package com.techm.react.Wasteland.controller;
 import com.techm.react.Wasteland.dto.AlbumDTO;
 import com.techm.react.Wasteland.service.AlbumService;
 import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.List;
 
 public class AlbumController {
-
+    @Autowired
     ModelMapper modelMapper;
+    @Autowired
     AlbumService albumService;
 
     @GetMapping("/albums/")

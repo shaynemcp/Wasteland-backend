@@ -5,10 +5,12 @@ import com.techm.react.Wasteland.models.Song;
 import com.techm.react.Wasteland.repository.SongRepo;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Service
 public class SongService implements SongServiceInterface{
     @Autowired
     SongRepo songRepo;
