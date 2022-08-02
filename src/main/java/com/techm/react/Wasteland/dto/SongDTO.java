@@ -13,9 +13,10 @@ import java.sql.Time;
 public class SongDTO {
 
     private String title;
-    private Album album;
+    private AlbumDTO album;
     private String artists;
     private int track;
     private Time length;
+
 
 }

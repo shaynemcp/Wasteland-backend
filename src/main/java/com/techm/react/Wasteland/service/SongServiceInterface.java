@@ -1,9 +1,11 @@
 package com.techm.react.Wasteland.service;
 
-import com.techm.react.Wasteland.models.Song;
+import com.techm.react.Wasteland.dto.SongDTO;
 
 import java.util.List;
 
 public interface SongServiceInterface {
-    List<Song> findAllSongs();
+    List<SongDTO> findAllSongs();
+
+    SongDTO getSongByTitle(String title) throws NoSuchFieldException;
 }
