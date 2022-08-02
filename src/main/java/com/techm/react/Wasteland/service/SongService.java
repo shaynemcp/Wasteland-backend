@@ -36,6 +36,13 @@ public class SongService implements SongServiceInterface{
         else throw new NoSuchFieldException("The song by that title does not exist");
     }
 
+    public SongDTO findByTrack(int track) {
+        SongDTO song = new SongDTO();
+        if(song.getTrack() == track) {
+            return song;
+        }
+        return null;
+    }
 
 
 
