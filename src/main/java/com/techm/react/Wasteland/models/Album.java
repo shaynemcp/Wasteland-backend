@@ -14,8 +14,8 @@ import java.sql.Time;
 @ToString
 public class Album {
     @Id
-    @GeneratedValue
-    int id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
 
     @Column(name="album_title")
     private String title;
@@ -28,5 +28,4 @@ public class Album {
 
     @Column(name = "album_length")
     private Time length;
-
 }

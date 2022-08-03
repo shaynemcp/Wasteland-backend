@@ -1,6 +1,8 @@
 package com.techm.react.Wasteland.models;
 
 import lombok.*;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
 import java.sql.Time;
@@ -13,15 +15,16 @@ import java.sql.Time;
 @EqualsAndHashCode
 @ToString
 public class Song {
-
     @Id
-    @GeneratedValue
-    int id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
 
     @Column(name = "title")
     private String title;
 
-    @Column(name = "album")
+    @JoinColumn(name = "album")
+    @ManyToOne
+    @OnDelete(action = OnDeleteAction.CASCADE)
     private Album album;
 
     @Column(name = "artists")
@@ -32,8 +35,4 @@ public class Song {
 
     @Column(name = "track_length")
     private Time length;
-
-//    @ManyToOne
-//    private Album albs;
-
 }
