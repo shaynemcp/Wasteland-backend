@@ -1,27 +1,31 @@
 package com.techm.react.Wasteland.models;
 
 import lombok.*;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.sql.Time;
 
 @Entity
 @Table(name = "song")
 @NoArgsConstructor
+@AllArgsConstructor
 @Getter @Setter
 @EqualsAndHashCode
 @ToString
-
 public class Song {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
 
     @Column(name = "title")
     private String title;
 
-    @Column(name = "album")
-    private String album;
+    @JoinColumn(name = "album")
+    @ManyToOne
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    private Album album;
 
     @Column(name = "artists")
     private String artists;
@@ -31,8 +35,4 @@ public class Song {
 
     @Column(name = "track_length")
     private Time length;
-
-    @ManyToOne
-    private Album albs;
-
 }
