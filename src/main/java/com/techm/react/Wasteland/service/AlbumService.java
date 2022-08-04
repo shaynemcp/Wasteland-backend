@@ -22,6 +22,7 @@ public class AlbumService implements AlbumServiceInterface{
         List<AlbumDTO> albumDTOS = new ArrayList<>();
 
         List<Album> albums = albumRepo.findAll();
+        System.out.println(albums);
 
         for(Album a: albums) {
             albumDTOS.add(modelMapper.map(a, AlbumDTO.class));
